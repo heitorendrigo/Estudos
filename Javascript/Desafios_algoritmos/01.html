@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Teste de logica Neon</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Exercicio 01</h1>
+  </body>
+    <script>
+		var texto = prompt("Digite a palavra para a verificação: ");
+		var esquerda = "";  
+		function verificaPalindromo(pString)
+		{
+			for (var i = pString.length; i > 0; i--)     //define a inversão da string
+				{ 
+				esquerda = esquerda + pString.substring(i-1,i)
+				}
+	
+			if (texto == esquerda)
+				{
+					return 1;
+				}
+			else
+				{
+					return 0;
+				}
+		}			
+		document.write(verificaPalindromo(texto));	
+	</script>
+
+</html>

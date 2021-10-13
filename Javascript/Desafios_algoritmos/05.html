@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Teste de logica Neon</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Exercicio 05 - Caixa eletronico</h1>
+  </body>
+    <script>
+	var valor = parseInt(prompt("Entre com o 1o numero: "));
+	var saldo = valor;
+	var n100  = 0;
+	var n50   = 0;
+	var n20   = 0;
+	var n10   = 0;
+	var n5    = 0;
+	var n2    = 0;
+if (valor >= 2 && valor != 3)
+	{
+		if (valor >= 5 && valor % 2 ===1)
+		{
+			saldo = saldo - 5;
+			n5 = 1;
+		}
+		while (saldo >= 2 )
+		{
+			if (saldo >= 100)  // verifica se usará notas de 100.
+				{
+					n100 = saldo/100|0;   //contabilizo quantas notas de 100 usarei  --> o "|0;"  serve para truncar o resultado
+					saldo = saldo % 100;  // jogo o saldo das notas de 100 para o saldo
+				}
+					else 
+					{
+						if (saldo >= 50)
+						{
+							n50 = saldo/50|0;
+							saldo = saldo % 50; 
+						}
+							else 
+							{
+								if (saldo >= 20)
+								{
+									n20 = saldo/20|0;
+									saldo = saldo % 20;  
+								}
+									else 
+									{
+										if (saldo >= 10)
+										{
+											n10 = saldo/10|0;
+											saldo = saldo % 10;
+										}
+										else 
+										{
+											if (saldo >= 5)
+											{
+												n5 = n5 + saldo/5|0; 
+												saldo = saldo % 5;
+											}
+												else 
+												{
+													if (saldo >= 2)
+													{
+														n2 = saldo/2|0; 
+														saldo = saldo % 2;
+													}
+											
+												}
+										}
+									}
+							}
+					}	
+		}
+		if (saldo === 1) // Resolve numeros com ultimo algarismo 8.
+		{		
+			n5 -= 1;  
+			n2 += 3;
+			saldo = 0;
+		}
+		var nTotal = n2+n5+n10+n20+n50+n100;
+		document.write("Valor Solicitado: "+valor+"<br />");
+		document.write("Saldo: "+saldo+"<br /><br />");
+		document.write("Numero de notas de 100 : "+n100+"<br />");
+		document.write("Numero de notas de  50 : "+n50+"<br />");
+		document.write("Numero de notas de  20 : "+n20+"<br />");
+		document.write("Numero de notas de  10 : "+n10+"<br />");
+		document.write("Numero de notas de   5 : "+n5+"<br />");
+		document.write("Numero de notas de   2 : "+n2+"<br /><br />");
+		document.write("Total de notas : "+nTotal);
+	}
+	else 
+	{
+	alert("Valor nao permitido, cedulas disponiveis: 2, 5, 10, 20, 50 e 100.");	
+	}	
+	</script>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Teste de logica Neon</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Exercicio 05 - Caixa eletronico</h1>
+  </body>
+    <script>
+	var valor = parseInt(prompt("Entre com o Valor do Saque: "));
+	var saldo = valor;
+	var n100  = 0;
+	var n50   = 0;
+	var n20   = 0;
+	var n10   = 0;
+	var n5    = 0;
+	var n2    = 0;
+        function validaValor(pValor) 
+        { 
+            saldo = valor;
+            if (pValor == 1 || pValor == 3)  
+            {
+                alert("Valor não permitido, cedulas disponiveis: 2, 5, 10, 20, 50, 100");
+                valor = parseInt(prompt("Entre com o Valor do Saque: "));
+                validaValor(valor);
+            }
+            else
+            {
+                if (pValor >= 5 && pValor %2 == 1)
+                {
+                    n5 = n5 + 1;
+                    saldo = saldo - 5;
+                }
+                else
+                { 
+                    console.log("39: else  --> Não faz nada");     // indica que nao precisa efetuar o ajuste
+                }
+            }
+        }
+
+        function ajustaSaldoFinal()
+        {
+            if (saldo == 1)
+            {
+                if (n5>0)
+                {
+                    n5 = n5-1;
+                    n2 = n2+3;
+                    saldo = 0;
+                }
+                else
+                {
+                    if(n10>0)
+                    {
+                        n10 = n10 - 1;
+                        n5 = n5 + 1;
+                        n2 = n2 +3;
+                        saldo = 0 ;
+                    }
+                } 
+            }
+        }
+
+        function realizaSaque()
+        {
+            while (saldo >= 2)
+            { 
+                if (saldo >= 100)
+                {
+                    n100 = n100+saldo/100|0;   //contabilizo quantas notas de 100 usarei  --> o "|0;"  serve para truncar o resultado
+                    saldo = saldo % 100;  // jogo o saldo das notas de 100 para o saldo                  
+                }
+                    else 
+                    {
+                        if (saldo >= 50)
+                        {
+                            n50 = n50+saldo/50|0;
+                            saldo = saldo % 50;             
+                        }
+                        else
+                        {
+                            if (saldo >= 20)
+                            {
+                                n20 = n20+saldo/20|0;
+                                saldo = saldo % 20;            
+                            }
+                            else
+                            {
+                                if (saldo >= 10)
+                                {
+                                    n10 = n10+saldo/10|0;
+                                    saldo = saldo % 10;           
+                                }
+                                else 
+                                {
+                                    if (saldo >= 5)
+                                    {
+                                        n5 = n5+ saldo/5|0;
+                                        saldo = saldo % 5;             
+                                    }  
+                                    else
+                                    {
+                                        if (saldo >= 2)
+                                        {
+                                            n2 = n2+saldo/2|0;
+                                            saldo = saldo % 2;                
+                                        }  
+                                    }
+                                }
+                            }
+                        }
+                   }
+            }
+        }
+
+        function imprimeNumeros()
+        {
+            console.log("Entrou imprimeNumeros...");
+            document.write("Valor Solicitado: "+valor+"<br />");
+            document.write("Saldo pendente : "+saldo+"<br /><br />");
+            document.write("Cédulas de 100: "+n100+"<br />");
+            document.write("Cédulas de 50: "+n50+"<br />");
+            document.write("Cédulas de 20: "+n20+"<br />");
+            document.write("Cédulas de 10: "+n10+"<br />");
+            document.write("Cédulas de 5: "+n5+"<br />");
+            document.write("Cédulas de 2: "+n2+"<br />");
+            console.log("Saiu imprimeNumeros...");
+        }
+        validaValor(valor);
+        realizaSaque();
+        ajustaSaldoFinal();
+        imprimeNumeros();
+	</script>
+</html>

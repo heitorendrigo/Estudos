@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Teste de logica Neon</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Exercicio 03 - Encontra maior e menor numro da lista de inteiros.</h1>
+  </body>
+    <script>
+	var n1 = parseInt(prompt("Entre com o 1o numero: "));
+	var n2 = parseInt(prompt("Entre com o 2o numero: "));
+	var n3 = parseInt(prompt("Entre com o 3o numero: "));
+	var n4 = parseInt(prompt("Entre com o 4o numero: "));
+	var array = [n1,n2,n3,n4];
+	var maior = Math.max.apply(null, array);       //pega maior valor da array resolvendo NaN
+	var menor = Math.min.apply(null, array);
+	document.write("O maior numero: "+maior+"<br />");
+	document.write("O menor numero: "+menor);
+	</script>
+</html>

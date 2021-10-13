@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Teste de logica Neon</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Exercicio 04 - Soma dos 2 menores numeros pares</h1>
+  </body>
+    <script>
+	var a = parseInt(prompt("Entre com o valor 1: "));
+	var b = parseInt(prompt("Entre com o valor 2: "));
+	var c = parseInt(prompt("Entre com o valor 3: "));
+	var d = parseInt(prompt("Entre com o valor 4: "));
+	var e = parseInt(prompt("Entre com o valor 5: "));
+	var soma = 0;
+	var pares = [];
+	var array = [a,b,c,d,e];
+	array = array.sort();
+	for (var i = 0 ; i < array.length; i++)
+	{
+		if (array[i]%2 == 0)
+		{
+			pares.push(array[i]);	
+		}
+	}
+	soma = pares[0]+pares[1];
+	document.write("Soma dos 2 menores numeros Pares: "+soma);
+	</script>
+</html>
