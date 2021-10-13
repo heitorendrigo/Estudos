@@ -1,0 +1,19 @@
+ legend {
+     font-style:bold;
+     font-family: "Segoe UI";
+}
+ #area {
+     width:100%;
+     height:100%;
+}
+ #area #formulario {
+     display:block;
+}
+ #formulario label {
+     left:19px;
+     margin-right:5px;
+     border: 1 px solid blac;
+}
+ #formulario input {
+     margin:2px 0 2px 0;
+}
