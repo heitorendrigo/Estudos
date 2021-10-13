@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Meu Formulário Personalizado</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+<script>
+
+</script>
+  </head>
+<body>
+  <div id="area">
+    <fieldset>
+    <form id="formulario" autocomplete="off">
+        <label>Nome da empresa:</label><input class="company" type="text" id="company"><br>
+        <label>Salário:</label><input class="salary" type="text" id="salary" onkeypress="return isNumberKey(event)"><br>
+        <label>VR:</label><input class="benefits" type="text" id="benefits" onkeypress="return isNumberKey(event)"><br>
+        <label>Tipo de contratação:</label>
+        <select id="contract">
+          <option>CLT</option>
+          <option>PJ</option>
+        </select><br>
+		<label>Tipo de pessoa Juridica:</label>
+        <select id="legalType">
+          <option>SIMPLES</option>
+          <option>LTDA</option>
+        </select><br>	
+        <input class="btn_submit" type="button" onclick="check()" value="Calcular">
+    </form>
+    </fieldset>
+  </div>
+</body>
+<script type="text/javascript" src="init.js"></script>
+</html>

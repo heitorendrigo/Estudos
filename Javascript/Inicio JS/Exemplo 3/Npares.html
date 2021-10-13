@@ -1,0 +1,48 @@
+<meta charset="utf-8">
+<h1>Exibe Numeros pares de 0 a 100</h1>
+<script>
+	var start = 0;
+	var end   = 100;
+	
+	function pulaLinha() 
+		{
+    	document.write("<br />");
+		}
+
+	function mostra(frase) 
+	{
+	    document.write(frase);
+	    pulaLinha();
+	}
+	
+	function exibeNumero(pStart, pEnd) 
+	{	
+		start = pStart;
+		end   = pEnd;	
+		while (start <= end) 
+		{
+			if (start % 2 == 0) 
+			{
+				mostra(start);
+				pulaLinha(); 
+				start++;
+			}
+			else
+			{
+			start ++;
+			}
+		}	
+		
+	}
+	
+	exibeNumero(start, end); 
+
+</script>
+
+
+
+
+
+
+
+

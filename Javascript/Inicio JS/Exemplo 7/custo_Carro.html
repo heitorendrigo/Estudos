@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Exercicio de Logica</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Custo do veículo.</h1>
+  </body>
+    <script>
+      function cost(pCost,pDistributor,pTax)
+      {
+  	   return pCost + (pCost*pDistributor/100) + (pCost*pTax/100) ;  
+      }
+      var carCost = parseInt(prompt("Digite o custo de fábrica: "));
+      var dist = parseInt(prompt("Digite o percentual do distribuidor: "));
+      var tax = parseInt(prompt("Digite o percentual do imposto: "));
+	  var finalCost = cost(carCost,dist,tax);
+      document.write("Custo final: "+finalCost);
+    </script>
+
+</html>

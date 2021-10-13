@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Orientação a Objetos</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Exercicio 03 - OOP</h1>
+  </body>
+    <script>
+        var lado1 = parseInt(prompt("Entre com o 1º lado do triângulo: "));
+        var lado2 = parseInt(prompt("Entre com o 2º lado do triângulo: "));
+        var lado3 = parseInt(prompt("Entre com o 3º lado do triângulo: "));
+		class Triangulo
+            {
+                constructor(a,b,c)
+                {
+                    this._a = a;
+                    this._b = b;
+                    this._c = c;
+                }
+            
+                verificaTriangulo()
+                {
+                    if(this._a < this._b + this._c && this._b < this._a+this._c && this._c < this._a+this._b)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        var triangulo1 = new Triangulo(lado1,lado2,lado3);
+        document.write("Os lados formam um triângulo? R: "+triangulo1.verificaTriangulo());
+	</script>
+</html>

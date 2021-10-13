@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Exemplo de funcoes matemáticas</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Exemplo de funcoes matemáticas</h1>
+  </body>
+    <script>
+      function addition(pA, pB)
+      {
+      return pA+pB;  
+      }
+      
+      function subtraction(pA, pB)
+      {
+      return pA-pB;
+      }
+      
+      function multiplication(pA, pB)
+      {
+      return pA*pB;
+      }
+      
+      function division(pA, pB)
+      {
+      return pA/pB;
+      }
+      var a = parseInt(prompt("Digite o 1º numremo: "));
+      var b = parseInt(prompt("Digite o 2º numremo: "));
+      
+      var add = addition(a,b);
+      var sub = subtraction(a,b);
+      var mul = multiplication(a,b);
+      var div = division(a,b);
+      
+      document.write("Resultado da adição "+a+" + "+b+"= "+add+"<br />");
+      document.write("Resultado da subtração "+a+" - "+b+"= "+sub+"<br />");
+      document.write("Resultado da multiplicação "+a+" x "+b+"= "+mul+"<br />");
+      document.write("Resultado da divisão "+a+" / "+b+"= "+div+"<br />");
+      
+    </script>
+
+</html>

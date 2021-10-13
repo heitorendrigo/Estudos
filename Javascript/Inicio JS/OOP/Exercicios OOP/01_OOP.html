@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Orientação a Objetos</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Exercicio 01 - OOP</h1>
+  </body>
+    <script>
+		var base = parseInt(prompt("Entre com o valor da Base: "));
+		var altura = parseInt(prompt("Entre com o valor da Altura: "));
+		var profundidade = parseInt(prompt("Entre com o valor da Profundidade: "));
+		class Area
+		{
+			constructor(x,y,z)
+			{
+				this._x = x;
+				this._y = y;
+				this._z = z;
+			}
+
+			Qudrada()
+			{
+				var q = this._x*this._y;
+				return q;
+			}
+
+			Cubica()
+			{
+				var c = this._x * this._y * this._z; 
+				return c;
+			}
+		}
+		var medidas = new Area(base,altura,profundidade);
+		document.write("O valor da area quadrada é: "+medidas.Qudrada()+" cm².<br />");
+		document.write("O valor da area cubica é: "+medidas.Cubica()+" cm³.");
+
+	</script>
+</html>

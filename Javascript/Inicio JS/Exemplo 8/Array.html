@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Teste de logica</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Exercicio Array</h1>
+  </body>
+    <script>
+	var array = [];
+	for (var i = 1 ; i <= 5; i++)
+	{
+		var a = prompt("Digite o "+i+" valor:");
+		array.push(a);	
+	}
+	document.write("Array: "+array);
+	var novoArray = [array[0],array[3]];
+	array.splice(0, 1); // Começando na posição do índice 0, remova um elemento
+	array.splice(2, 1); // Começando na posição do índice 3, remova um elemento
+	document.write("<br />Array: "+array+"<br /> Novo Array: "+novoArray);
+	</script>
+</html>
