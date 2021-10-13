@@ -1,0 +1,51 @@
+
+Select busca not_in_codigo
+
+select a.not_in_codigo, a.rowid 
+from mgven.ven_notafiscal a
+where a.not_in_numero = 5803
+and a.ser_st_codigo = '2'
+
+retorno = AAAAAA
+
+
+
+
+
+
+Select busca codigo declaração importação   
+
+select a.dim_in_sequencia, a.rowid
+from mgven.ven_declaracaoimpitemnf a
+where a.not_in_codigo = AAAAAA
+
+
+Retorno = BBBBB
+
+
+
+
+select b.DIM_IN_TPVIATRANSP,b.dim_in_tpintermedio, b.rowid
+from mgven.ven_declaracaoimp b
+where b.dim_in_sequencia = BBBB
+
+
+
+===========
+
+b.dim_in_tpintermedio (setar como 1)
+
+
+Select alteração do campo DIM_IN_TPVIATRANSP conforme tabela abaixo:
+
+1 - Marítima
+2 - Fluvial
+3 - Lacustre
+4 - Aérea
+5 - Postal
+6 - Ferroviária
+7 - Rodoviária
+8 - Conduto - Rede Transmissão
+9 - Meios Próprios
+10 - Entrada - Saída ficta
+

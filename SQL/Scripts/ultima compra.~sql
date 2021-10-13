@@ -1,0 +1,14 @@
+select 
+itn.agn_in_codigo, 
+agn.agn_st_fantasia,
+itn.rcb_dt_documento
+
+  from mgadm.est_itensreceb itn,
+       mgglo.glo_agentes agn,
+        mgglo.glo_fornecedor forn
+        
+ where  itn.agn_tab_in_codigo = agn.agn_tab_in_codigo
+    and itn.agn_pad_in_codigo = agn.agn_pad_in_codigo
+    and     itn.agn_in_codigo = agn.agn_in_codigo
+    and    forn.agn_in_codigo = agn.agn_in_codigo
+    

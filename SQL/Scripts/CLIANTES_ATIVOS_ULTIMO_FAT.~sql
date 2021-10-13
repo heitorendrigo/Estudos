@@ -1,0 +1,40 @@
+select 
+rep.agn_st_fantasia as REPRESENTANTE,
+        CLI.AGN_IN_CODIGO AS  COD_CLI,
+        CLI.AGN_ST_FANTASIA AS CLIENTE,
+        fat.NOT_IN_NUMERO as NF,
+        FAT.NOT_DT_EMISSAO AS "DATA U. FAT",
+        FAT.NOT_RE_VALORTOTAL AS "VALOR U. FAT",
+        itn_fat.NOME_PROD,
+        itn_fat.VLR_UNITARIO_VENDA,
+        itn_fat.QUANTIDADE
+        
+
+from mgcli.cli_vw_ultimofaturamento fat, 
+     mgglo.glo_agentes cli, 
+     mgglo.glo_agentes rep,
+     mgglo.glo_agentes_id tipo,
+     mgcli.cli_vw_faturamento  itn_fat
+     
+where fat.AGN_IN_CODIGO = cli.agn_in_codigo
+and  fat.REP_IN_CODIGO  = rep.agn_in_codigo
+AND fat.TPD_IN_CODIGO in (10,12,41)
+and cli.agn_in_codigo in 
+(SELECT C.AGN_IN_CODIGO 
+        FROM MGGLO.GLO_AGENTES_ID C 
+        WHERE C.AGN_CH_STATUS = 'A' 
+        AND C.AGN_TAU_ST_CODIGO = 'C'     -- clientes ativos
+        AND C.AGN_DT_INICIOMOV <= SYSDATE)
+and fat.NOT_IN_NUMERO  = itn_fat.NUMERO_NF
+and fat.NOT_DT_EMISSAO = itn_fat.DT_VENDA
+and fat.NOT_DT_EMISSAO >= '01-jan-2019'
+        
+
+group  by rep.agn_st_fantasia,CLI.AGN_IN_CODIGO,CLI.AGN_ST_FANTASIA,fat.NOT_IN_NUMERO,FAT.NOT_DT_EMISSAO,FAT.NOT_RE_VALORTOTAL,itn_fat.NOME_PROD,itn_fat.VLR_UNITARIO_VENDA,itn_fat.QUANTIDADE
+
+
+
+
+
+
+

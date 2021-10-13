@@ -1,0 +1,13 @@
+insert into mgven.ven_tipodocgrupoestoque 
+VALUES 
+(155,
+1,
+&TPD,
+(SELECT MAX(TDG_IN_SEQUENCIA)+1 FROM mgven.ven_tipodocgrupoestoque where TPD_IN_CODIGO = &TPD),
+101,
+1,
+(select p.gru_ide_st_codigoo from mgadm.est_produtos p where p.pro_in_codigo = &itn),
+(select p.gru_in_codigo from mgadm.est_produtos p where p.pro_in_codigo = &itn)
+)
+  
+

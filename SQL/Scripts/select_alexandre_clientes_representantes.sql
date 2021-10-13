@@ -1,0 +1,31 @@
+Select REP.AGN_IN_CODIGO AS COD_REP,
+REP.AGN_ST_NOME AS NOME_REP, 
+CLI.AGN_IN_CODIGO AS COD_CLI,
+CLI.AGN_ST_NOME AS NOME_CLI,
+AGNID.AGN_CH_STATUS AS STATUS_AGN,
+AGNID.CAT_IN_REDUZIDO AS CATEGORIA_CLIENTE,
+CLI.AGN_ST_LOGRADOURO AS CLI_RUA,
+CLI.AGN_ST_NUMERO AS CLI_NUM,
+CLI.AGN_ST_BAIRRO AS CLI_BAIRRO,
+CLI.AGN_ST_CEP AS CLI_CEP,
+CLI.AGN_ST_MUNICIPIO AS CLI_CIDADE,
+CLI.UF_ST_SIGLA AS CLI_ESTADO,
+CLI.AGN_ST_EMAIL AS CLI_EMAIL
+
+
+from mgglo.glo_agentes rep, mgglo.glo_agentes cli, mgglo.glo_agentes_id agnid, mgglo.glo_relacao_cli_rep clirep
+
+where cli.agn_in_codigo = clirep.cli_agn_in_codigo
+
+and clirep.rep_agn_in_codigo = rep.agn_in_codigo
+and cli.agn_in_codigo = agnid.agn_in_codigo
+AND AGNID.AGN_TAU_ST_CODIGO = 'C'
+--AND AGNID.AGN_CH_STATUS = 'A'
+
+--AND REP.AGN_IN_CODIGO IN (25533,28378,26688,25534)
+ORDER BY REP.AGN_IN_CODIGO
+
+-- FABIO 25533
+-- KEJI 28378
+-- CLAYTON 26688
+-- NEY 25534

@@ -1,0 +1,9 @@
+select p.pro_in_codigo as "COD MEGA", p.pro_st_descricao AS  "DESCRIÇÃO",p.pro_st_alternativo AS "ALTERNATIVO", o.mep_st_valor AS "Nº CAS"
+
+from mgadm.est_produtos p ,mgcli.cli_vw_especitens o
+
+where p.pro_in_codigo = o.pro_in_codigo
+and p.pro_st_defitem = 'MP'
+and o.med_in_sequencia = 32
+
+

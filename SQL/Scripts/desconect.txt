@@ -1,0 +1,3 @@
+select p.*, p.rowid from mgglo.glo_logacessosistema p
+where p.usu_dt_login = '01-AGO-2014'
+and p.usu_dt_logout is null

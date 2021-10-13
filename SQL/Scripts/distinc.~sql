@@ -1,0 +1,7 @@
+select distinct r.rcb_st_nota from mgadm.est_itensreceb i,  mgadm.est_recebimento r  --sem o distinc ele repete os dados de retorno
+where r.agn_in_codigo = i.agn_in_codigo
+and r.rcb_st_nota = i.rcb_st_nota
+and r.rcb_st_nota = i.rcb_st_nota
+and r.rcb_dt_documento > '01-nov-2013'
+and i.apl_in_codigo = 2
+and r.rcb_re_totalfrete <> '0,00'

@@ -1,0 +1,5 @@
+
+
+iNSERT INTO mgglo.glo_relatorio_usuario (rel_in_codigo,gru_in_codigo,rus_bo_editar,rus_bo_executar,rus_bo_excluir) values
+(&relatorio,143,'N','S','N')
+

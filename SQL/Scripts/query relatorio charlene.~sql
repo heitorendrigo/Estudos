@@ -1,0 +1,50 @@
+CREATE OR REPLACE VIEW CLI_VW_CHECAEXPEDICAO AS  --CRIADA POR HEITOR CLIENTE PARA RELATORIO DE EXPEDIÇÃO 17/03/2015
+(select p.not_st_uf  as estado,
+       P.NOT_IN_NUMERO,
+       P.NOT_IN_CODIGO,
+       P.AGN_IN_CODIGO,
+       P.AGN_TAU_ST_CODIGO,
+       P.NOT_DT_EMISSAO,
+       espec.mep_st_valor as NUMERO_ONU,
+       ESPEC.MED_IN_SEQUENCIA AS TIPO_ESPEC_33,
+      
+
+       nvl((Select 1 from mgglo.Glo_Agenteiesubst I
+       where i.uf_st_sigla = p.not_st_uf),0) as IE_SUBSTITUTA,
+
+       nvl((select 1 as ZONA_FRANCA from mgtrf.trf_zfm ZF,MGGLO.GLO_PFISCAL_AGENTE AGF, MGGLO.GLO_AGENTES AG
+       where ZF.UF_ST_SIGLA = P.Not_St_Uf
+       AND ZF.MUN_IN_CODIGO = P.MUN_IN_CODIGO
+       AND  P.AGN_IN_CODIGO = AGF.AGN_IN_CODIGO
+       AND AGF.AGN_BO_ENQUADRASUFRAMA = 'S'
+       AND AGF.AGN_IN_CODIGO = AG.AGN_IN_CODIGO
+       AND AG.AGN_ST_SUFRAMA IS NOT NULL
+       AND AGF.AGN_DT_INIVIGENCIA = (SELECT MAX(L.AGN_DT_INIVIGENCIA)FROM MGGLO.GLO_PFISCAL_AGENTE L)),0) as ZFM,
+
+
+
+       nvl((Select 1 from mgadm.est_produtos PRO, MGVEN.VEN_ITEMNOTAFISCAL ITNF, MGVEN.VEN_NOTAFISCAL NF
+       where     NF.NOT_IN_CODIGO = ITNF.PRO_IN_CODIGO
+       AND    ITNF.PRO_IN_CODIGO = PRO.PRO_IN_CODIGO
+       AND     PRO.PRO_IN_codigo = ESPEC.PRO_IN_CODIGO
+       AND   ESPEC.MED_IN_SEQUENCIA = 33
+       AND     ESPEC.MEP_ST_VALOR IS NOT NULL
+       
+     GROUP BY PRO.PRO_IN_CODIGO 
+       ),0) as FICHA_VERMELHA,
+
+
+         nvl((Select 0 from mgadm.est_produtos PRO, MGVEN.VEN_ITEMNOTAFISCAL ITNF, MGVEN.VEN_NOTAFISCAL NF
+       where     NF.NOT_IN_CODIGO = ITNF.PRO_IN_CODIGO
+       AND    ITNF.PRO_IN_CODIGO = PRO.PRO_IN_CODIGO
+       AND     PRO.PRO_IN_codigo = ESPEC.PRO_IN_CODIGO
+       AND   ESPEC.MED_IN_SEQUENCIA = 33
+       AND     ESPEC.MEP_ST_VALOR IS not NULL
+       
+     GROUP BY PRO.PRO_IN_CODIGO 
+       ),1) as FICHA_VERDE
+
+
+
+
+from mgven.ven_notafiscal p ,mgCLI.Cli_vw_Especitens ESPEC)

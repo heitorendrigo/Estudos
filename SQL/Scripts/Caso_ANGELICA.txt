@@ -1,0 +1,32 @@
+dei um select nesta tabela para descobrir quais são os documentos vinculados
+[15:13:10] Andre Manente Gonçalves da Silva: select t.*, t.rowid from fin_chequesbaixas t
+where t.cheq_in_numlancto in (15294)
+[15:13:46] Heitor Rocha: na verdade eu ja passei pra angelica
+[15:13:48] Andre Manente Gonçalves da Silva: depois executei este
+[15:13:50] Andre Manente Gonçalves da Silva: 
+
+select T.*, T.ROWID from fin_movimento t
+where t.mov_in_numlancto IN (897799,
+895016,
+896231,
+895652,
+895639,
+899652,
+897809,
+897819,
+898699,
+890580,
+891417,
+892165,
+895517,
+895030)
+
+
+
+[15:14:13] Heitor Rocha: entao mais dai valterou o que nestes regitros?
+[15:14:22] Andre Manente Gonçalves da Silva: e alterei o campo MOV_BO_TITRECONHECIDO para S
+[15:14:32] Andre Manente Gonçalves da Silva: estava como N
+[15:14:33] Heitor Rocha: poderia ter feito um update tbm
+[15:14:36] Andre Manente Gonçalves da Silva: sim
+[15:14:39] Heitor Rocha: certo
+[15:14:55] Andre Manente Gonçalves da Silva: as vezes prefiro fazer isso para não pegar movimento errado

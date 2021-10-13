@@ -1,0 +1,7 @@
+select p.*,p.rowid from MGADM.EST_ITENSINSPECAO p 
+where p.ins_in_sequencia = 61292
+
+select * from mgadm.est_ensaiosloteinspecao o
+where o.ins_in_sequencia = 61292
+
+--p.INS_CH_INSPECIONADO = 'N'  virar para 'S' para aparecer na listagem de inspeção

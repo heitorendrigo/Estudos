@@ -1,0 +1,31 @@
+Select pro.pro_in_codigo, pro.pro_st_alternativo, 
+lot.mvl_st_loteforne, 
+       (select min(o.mvt_dt_movimento) 
+               from mgadm.est_lotesmovimento o
+               where o.pro_in_codigo = pro.pro_in_codigo 
+               and o.mvl_st_loteforne = lot.mvl_st_loteforne ) as "LOT_DT_ENTRADA",
+
+        (select p.mvt_st_numdoc
+                from mgadm.est_lotesmovimento o, mgadm.est_movimento p 
+                where  o.mvt_in_lancam = p.mvt_in_lancam 
+                and  o.pro_in_codigo = pro.pro_in_codigo 
+                and o.mvl_st_loteforne = lot.mvl_st_loteforne
+                and o.mvt_dt_movimento = (select min(a.mvt_dt_movimento) 
+               from mgadm.est_lotesmovimento a
+               where a.pro_in_codigo = pro.pro_in_codigo 
+               and a.mvl_st_loteforne = lot.mvl_st_loteforne )) as "LOT_ST_DOC_ENTRADA",
+                
+lot.mvt_dt_validade,
+
+
+
+               (select max(o.mvt_dt_movimento) from 
+                       mgadm.est_lotesmovimento o 
+                       where o.pro_in_codigo = pro.pro_in_codigo 
+                       and o.mvl_st_loteforne = lot.mvl_st_loteforne ) as "LOT_DT_ULTIMO_MOV"
+
+from mgadm.est_lotesmovimento lot, mgadm.est_produtos pro
+where lot.pro_in_codigo = pro.pro_in_codigo
+and  pro.pro_in_codigo = 1066
+--and mov.mvl_st_loteforne like ('%/REV%');
+
