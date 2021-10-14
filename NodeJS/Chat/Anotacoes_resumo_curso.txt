@@ -1,0 +1,42 @@
+-node js : plataforma baseada em V8 (executor de js do chrome) para interpretar js e gerenciar aplicações web com html e js.
+
+express:framework  p/ desenv de sistemas web utilizado no node js (ele quem cuida das rotas)
+
+ejs : (Embedded JavaScript): Permite a criação e renderização de HTML puro ou hibrido (com JS usando <%>)
+
+nodemon : modulo importaro para nao ter que matar o server e subir de novo a cada alteração em arquivo.
+
+mysql : banco de dados usado no projeto para simulação de recuperação de dados.
+
+npm : (Node Pacjage Manager) utilitario de instalação e gerenciamento de packotes do node js. 
+
+Desing partner MVC (MODEL VIEWS C): estrutura de pastas e arquivos que o projeto obedece.
+
+Consing : Permite centralizar as rotas e importações de modulos a um unico lugar de maneira dinamica e automática.
+
+rota: parametros definidos por meio do express para criar os caminhos da URL para a renderização da pag por meio do ejs.
+
+Models :  Controle uma entidade do banco de dados, em geral uma por tabela.
+
+body parser : usado para podermos resgatar as instruções do body quando damos um post por exemplo.
+
+DAO: Data acsses Object.
+
+modulo midleware Express-Validator -> usado para validar dados dos campos com retorno de erro ou nao.
+	EX  notEmpty()  isAlpha()  isInt()  isEmail() len(4,8)
+	precisa instalar e adicionar no consign para inicialização
+	nota: break change na versão mais recente, o que gera uma mudança na forma de usar, ou seja, esta
+	forma deste curso já é obsoleta.
+	
+-----------
+A cerca de problemas com insert no banco!
+
+o fato de usarmos as propriedades "name" do formulario exatamente igual o nome dos
+ campos do banco de dados, somado ao fato de usarmos um json para passar os valores do 
+ formulario para o banco, faz com que o processo de adição do campo seja simples, 
+ adicionando nobanco e no formulario apenas.
+
+ OBS: se um dos campos se quer estiver com o name (formulario) diferente do campo (BD) o insert simplesmente nao acontece. 
+
+ Outra observação interessante é que o select simplesmente nao acontece tambem se houver algum campo data no formulario e esta data for passada de forma divergente do que o banco aceita, para corrigir isso sempre usar em campos de data no formulario o "type"="date" desta forma o json ja leva a data em formato compativel para o banco.
+ -----------
