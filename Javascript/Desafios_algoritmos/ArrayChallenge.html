@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Exemplo de titulo</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Exemplo de Cabeçalho</h1>
+<script>
+var array = [10,12,4,5,9]; //Output: 5
+//[10,12,4,5,9] //Output: 5
+// [14,20,4,12,5,11]  // Output: 8
+
+function ArrayChallenge(arr) 
+{
+  var minima = [arr.indexOf(Math.min.apply(null, arr)), Math.min.apply(null, arr)];
+  var new_arr = [Math.min.apply(null, arr)];
+  for (var i= arr.indexOf(Math.min.apply(null, arr)); i < arr.length;i++)
+  {
+    new_arr.push(arr[i]);
+  }
+
+  return Math.max.apply(null, new_arr)-new_arr[0]; 
+}
+   
+// keep this function call here 
+console.log(ArrayChallenge(array));
+</script>
+  </body>
+</html>

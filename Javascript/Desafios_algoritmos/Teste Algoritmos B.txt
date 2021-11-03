@@ -1,0 +1,155 @@
+1 - Back-end Challenge
+In the Python file, write a program to perform a GET request on the route 
+https://coderbyte.com/api/challenges/json/age-counting 
+which contains a data key and the value is a string which 
+contains items in the format: key=STRING, age=INTEGER. 
+Your goal is to count how many items exist that have an age equal to or greater than 50, and print this final value.
+
+Example Input
+{"data":"key=IAfpK, age=58, key=WNVdi, age=64, key=jp9zt, age=47"}
+
+Example Output
+2
+
+Codigo:
+
+
+???
+
+
+
+
+====================
+2 - String Challenge
+Have the function StringChallenge(str) take the str parameter being passed which will contain the numbers 2 through 9, and determine if there is a consecutive stream of digits of at least N length where N is the actual digit value. If so, return the string true, otherwise return the string false. For example: if str is "6539923335" then your program should return the string true because there is a consecutive stream of 3's of length 3. The input string will always contain at least one digit.
+Examples
+Input: "5556293383563665"
+Output: false
+Input: "5788888888882339999"
+Output: true
+==============
+Codigo:
+
+function StringChallenge(str)
+{
+  var count = 0; //contador de reps
+  var rt = false //retorno da funcao
+  var i = 0;    //indice do while
+  while (i<str.length && rt == false) //loop 
+  {
+    if (i+1<str.length)//se não for o ultimo digito
+    {  
+      if(str[i]==str[i+1])//se o proximo for igual
+      {
+        count ++;  //conta as repetições
+        if (str[i] == count)//repetição for igual ao numero 
+        {
+          rt = true;
+        }
+      }
+      else //se o proximo nao repetir
+      {
+        if (str[i]==str[i-1])
+        {
+          count ++;
+          if(count == str[i])
+          {
+          rt = true;
+          }
+          else
+          {
+            count = 0; //zera contador.
+          } 
+        } 
+      }
+      //cilco normal antes do fim
+    }
+
+    else //caso seja o ultimo digito
+    {
+      if(str[i-1]==str[i])
+      {
+        count ++;
+      }
+
+      if (str[i] == count)//compara repetições com o numero repetido 
+      {
+        rt = true;
+      }
+      else
+      {
+        rt = false;
+      }
+      //ciclo do ultimo numero.
+      }
+    i ++;  //incrementa indice do while
+  }
+   return rt;
+}
+
+=======================
+3 - Array Challenge
+Have the function ArrayChallenge(arr) take the array of numbers stored in arr which will contain integers that represent the amount in dollars that a single stock is worth, and return the maximum profit that could have been made by buying stock on day x and selling stock on day y where y > x. For example: if arr is [44, 30, 24, 32, 35, 30, 40, 38, 15] then your program should return 16 because at index 2 the stock was worth $24 and at index 6 the stock was then worth $40, so if you bought the stock at 24 and sold it at 40, you would have made a profit of $16, which is the maximum profit that could have been made with this list of stock prices.
+
+If there is not profit that could have been made with the stock prices, then your program should return -1. For example: arr is [10, 9, 8, 2] then your program should return -1.
+Examples
+Input: [10,12,4,5,9]
+Output: 5
+Input: [14,20,4,12,5,11]
+Output: 8
+
+Codigo: 
+
+function ArrayChallenge(arr) 
+{
+  var minima = [arr.indexOf(Math.min.apply(null, arr)), Math.min.apply(null, arr)];
+  var new_arr = [Math.min.apply(null, arr)];
+  for (var i= arr.indexOf(Math.min.apply(null, arr)); i < arr.length;i++)
+  {
+    new_arr.push(arr[i]);
+  }
+
+  return Math.max.apply(null, new_arr)-new_arr[0]; 
+}
+
+=================
+4 - In this MySQL challenge, your query must return all people who report to Jenny Richards or have a NULL value in ReportsTo. 
+Rows must be sorted by Age. Your query must also add a column at the end with a title of Boss Title where the value is None or CEO. 
+Your output should look like the following table.
+
+Codigo: 
+
+/* write your SQL query below */
+
+SELECT FirstName,
+LastName,
+ReportsTo,
+Position,
+Age,
+if(ReportsTo = "Jenny Richards","CEO","None" ) as "Boss Title"
+
+FROM maintable_6WH7V
+
+where ReportsTo = "Jenny Richards"
+or ReportsTo is null
+order by Age
+
+
+=======================
+5 - Questoes:
+
+A) Em banco de dados, o que significa desnormalização? Cite um exemplo onde a técnica pode ser útil.
+R: 
+
+Desnormalização é feita a partir de redundância de dados, 
+ajuda na performance geral do banco de dados.
+Um caso que pode ser utilizada por exemplo seria em alguma situação onde se utilizam muitos "joins"
+quando usamos a desnormalização entre tabelas, não são necessárias tantas junções para o retorno desejado, pois 
+apesar de redundante a nivel de banco em geral, tudo se encontra no mesma tabela para aquela situação.
+
+
+B) Qual a diferença entre star schema e snowflake schema?
+R: 
+
+snowflake schema usa dados normalizados (redundancia de dados reduzida)
+star schema usa dados não normalizados (utilizando redundanca de dados)
