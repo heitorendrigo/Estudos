@@ -9,8 +9,7 @@
 <script>
 var num = '5556293383563665'; //true
 //5556293383563665   // false
-function StringChallenge(str)
-{
+function StringChallenge(str){
   var count = 0; //contador de reps
   var rt = false //retorno da funcao
   var i = 0;    //indice do while
@@ -42,16 +41,13 @@ function StringChallenge(str)
           } 
         } 
       }
-      //cilco normal antes do fim
     }
-
     else //caso seja o ultimo digito
     {
       if(str[i-1]==str[i])
       {
         count ++;
       }
-
       if (str[i] == count)//compara repetições com o numero repetido 
       {
         rt = true;
@@ -60,11 +56,10 @@ function StringChallenge(str)
       {
         rt = false;
       }
-      //ciclo do ultimo numero.
-      }
-    i ++;  //incrementa indice do while
+    }
+  i ++;  //incrementa indice do while
   }
-   return rt;
+ return rt;
 }
 
 console.log(StringChallenge(num));
