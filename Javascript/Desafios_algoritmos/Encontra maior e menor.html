@@ -8,28 +8,23 @@
     <h1>Exercicio 03 - Encontra maior e menor numro da lista de inteiros.</h1>
   </body>
     <script>
-	var n1 = parseInt(prompt("Entre com o 1o numero: "));
-	var n2 = parseInt(prompt("Entre com o 2o numero: "));
-	var n3 = parseInt(prompt("Entre com o 3o numero: "));
-	var n4 = parseInt(prompt("Entre com o 4o numero: "));
 	var maior = 0;
-	var menor = 999999999999; 
-	var array = [n1,n2,n3,n4];
+	var menor = Infinity ; 
+	var array = [5,8,4,2];
 	
+function encontraMaiorMenor(arr){	
 	for (var i = 0; i<4; i++)
 	{
-		if (array[i] >= maior)
-		{
-			maior = array[i]; 
+		if (arr[i] >= maior){
+			maior = arr[i]; 
 		}
-		else{}
-		if (array[i] <= menor)
-			{
-				menor = array[i];
-			}
-		else{}
-	}	
-	document.write("O maior numero: "+maior+"<br />");
-	document.write("O menor numero: "+menor);
+		if (arr[i] <= menor){
+			menor = arr[i];
+		}
+	}
+	return [maior,menor];
+}	
+console.log(encontraMaiorMenor(array));
+
 	</script>
 </html>

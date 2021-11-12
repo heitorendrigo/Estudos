@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+<meta charset="utf-8">
+  </head>
+  <body>
+<script>
+var string1 = prompt('Entre com a primeira palavra: ');
+var string2 = prompt('Entre com a segunda palavra: ');
+
+function anagrama(str1, str2){
+  var ar1 = [];
+  var ar2 = [];
+  var rt = false;
+  if (str1.length != str2.length)
+  { 
+    return rt
+  }
+  else
+  {
+    for (var i=0; i<str1.length; i++)
+    {
+      ar1.push(str1.substring(i,i+1));
+      ar2.push(str2.substring(i,i+1));   
+    }
+    ar1=ar1.sort();
+    ar2=ar2.sort();
+    for (var i=0; i<ar1.length; i ++)
+    {
+      if (ar1[i]==ar2[i])
+      {
+        rt = true;
+      }
+      else
+      {
+      rt = false; 
+      }
+    }
+    return rt
+  }
+}
+console.log(anagrama(string1,string2));
+
+
+</script>
+  </body>
+</html>

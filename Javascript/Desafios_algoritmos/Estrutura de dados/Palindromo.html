@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+<meta charset="utf-8">
+  </head>
+  <body>
+<script>
+var string1 = prompt('Entre com a palavra: ');
+
+function palindromo(str){
+  str=str.toLowerCase().replace(new RegExp('[ÁÀÂÃáàâã]','gi'),'a')
+          .replace(new RegExp('[ÉÈÊéèê]','gi'),'e')
+          .replace(new RegExp('[ÍÌÎíìî]','gi'),'i')
+          .replace(new RegExp('[ÓÒÔÕóòôõ]','gi'),'o')
+          .replace(new RegExp('[ÚÙÛúùû]','gi'),'u')
+          .replace(new RegExp('[Ç]','gi'), 'c');
+  //lower case + tratativa de acentos
+
+  var inv = '';
+
+  for (var i=0; i<str.length; i++) 
+  {
+    inv = str.substring(i,i+1)+inv; 
+  }//atribui letra por letra pela frente da string, de modo a se inverter o sentido das letras.
+
+  if (str == inv){ //compara string invertida com a string de entrada.
+    return true
+  } 
+  else {
+    return false
+  }
+}
+console.log(palindromo(string1));//executa a função passando entrada do prompt como parametro.
+</script>
+  </body>
+</html>

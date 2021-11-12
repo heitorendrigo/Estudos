@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+<meta charset="utf-8">
+  </head>
+  <body>
+<script>
+var valor,saldo,n100,n50,n20,n10,n5,n2 = 0;
+
+function validaValor(pValor) 
+{ 
+  valor = parseInt(prompt("Entre com o Valor do Saque: "));
+  saldo = valor;
+  if (pValor <= 1 || pValor == 3)  
+  {
+    alert("Valor não permitido");
+    valor = parseInt(prompt("Entre com o Valor do Saque: "));
+    validaValor(valor);//recursividade
+  }
+  else
+  {
+    if (pValor >= 5 && pValor %2 == 1)
+    {
+      n5 = n5 + 1;
+      saldo = saldo - 5;
+    }
+  }
+}
+
+        function ajustaSaldoFinal()
+        {
+            if (saldo == 1)
+            {
+                if (n5>0)
+                {
+                    n5 = n5-1;
+                    n2 = n2+3;
+                    saldo = 0;
+                }
+                else
+                {
+                    if(n10>0)
+                    {
+                        n10 = n10 - 1;
+                        n5 = n5 + 1;
+                        n2 = n2 +3;
+                        saldo = 0 ;
+                    }
+                } 
+            }
+        }
+
+        function realizaSaque()
+        {
+            while (saldo >= 2)
+            { 
+                if (saldo >= 100)
+                {
+                    n100 = n100+saldo/100|0;   //contabilizo quantas notas de 100 usarei  --> o "|0;"  serve para truncar o resultado
+                    saldo = saldo % 100;  // jogo o saldo das notas de 100 para o saldo                  
+                }
+                    else 
+                    {
+                        if (saldo >= 50)
+                        {
+                            n50 = n50+saldo/50|0;
+                            saldo = saldo % 50;             
+                        }
+                        else
+                        {
+                            if (saldo >= 20)
+                            {
+                                n20 = n20+saldo/20|0;
+                                saldo = saldo % 20;            
+                            }
+                            else
+                            {
+                                if (saldo >= 10)
+                                {
+                                    n10 = n10+saldo/10|0;
+                                    saldo = saldo % 10;           
+                                }
+                                else 
+                                {
+                                    if (saldo >= 5)
+                                    {
+                                        n5 = n5+ saldo/5|0;
+                                        saldo = saldo % 5;             
+                                    }  
+                                    else
+                                    {
+                                        if (saldo >= 2)
+                                        {
+                                            n2 = n2+saldo/2|0;
+                                            saldo = saldo % 2;                
+                                        }  
+                                    }
+                                }
+                            }
+                        }
+                   }
+            }
+        }
+
+
+        validaValor(valor);
+        realizaSaque();
+        ajustaSaldoFinal();
+        imprimeNumeros();
+</script>
+  </body>
+</html>
