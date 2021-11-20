@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <title>Cammel Case - Teste Buser</title>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <h1>Cammel Case - Teste Buser</h1>
-  </body>
-    <script>
-      var text = prompt('Enter the word to be converted: ');
+var text = '';
 
 function camelCase(str)
 {
@@ -31,6 +21,3 @@ function camelCase(str)
 }
   console.log(camelCase(text));
   document.write('String em Camel case: '+camelCase(text));
-  </script>
-
-</html>
