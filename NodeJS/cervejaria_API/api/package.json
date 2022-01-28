@@ -1,0 +1,20 @@
+{
+  "name": "server_cerveja",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Heitor Rocha",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.36",
+    "nodemon": "^2.0.15",
+    "opn": "^6.0.0",
+    "web-api-auth-examples": "git+https://github.com/spotify/web-api-auth-examples.git",
+    "window": "^4.2.7"
+  }
+}
