@@ -1,6 +1,5 @@
 //Função que converte numero decimal para Binario.
-var vl = parseInt(prompt('entre com o valor: '));
-
+var vl =  2
 function dec2bin(decNum){
   var binNum = [];
   var resto = 0;
