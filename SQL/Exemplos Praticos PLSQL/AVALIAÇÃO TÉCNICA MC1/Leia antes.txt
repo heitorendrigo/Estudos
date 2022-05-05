@@ -1,0 +1,6 @@
+1 - Executar o SQL Lite Studio 
+2 - Importar o arquivo mc1database.db
+3 - Conectar ao mc1database.db
+4 - Copiar os scripts (queries) e colar no arquivo Prova.docx nos espaços em branco destinados para cada pergunta.
+
+Obs. Dúvidas para utilização do SQL Lite Studio, pasta: Utilizando o SQLiteStudio
